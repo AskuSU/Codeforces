@@ -26,7 +26,7 @@ int main()
         char tmpString[lengthS];
         strcpy(tmpString, strings + i*lengthS*sizeof(char));
         for (int j = 0; j < i; j++)
-        {            
+        {
             if (strcmp(tmpString,strings + j*lengthS*sizeof(char)) == 0)
             {
                 k++;

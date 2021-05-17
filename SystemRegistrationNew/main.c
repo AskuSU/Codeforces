@@ -7,7 +7,7 @@
 typedef struct nameSpace
 {
     char userName[lengthName];
-    short cntUsages;
+    int cntUsages;
     struct nameSpace *leftName, *rightName;
 
 } NameSpace;
@@ -60,20 +60,14 @@ int main(){
     */
     scanf("%d", &N);
     NameSpace *listNames;
-    listNames = (NameSpace*)calloc(N, N * sizeof(NameSpace));
+    listNames = (NameSpace*)calloc(N, sizeof(NameSpace));
     for (int i = 0; i < N; i++)
     {
         NameSpace* currentName = listNames + i;
         scanf("%32s", currentName->userName);
         //fscanf(inputF, "%32s", currentName->userName);        
         //fgets(strings + i*lengthS*sizeof(char), lengthS, stdin);
-    }
-    printf("\n");
-
-    for (int i = 0; i < N; i++)
-    {
         short exist = 0;
-        NameSpace *currentName = listNames + i;
         NameSpace *element = insertNameToNameSpace(&firstEmptyName, currentName, &exist);
         if (exist)        
             printf("%s%d\n", element->userName, element->cntUsages);       
